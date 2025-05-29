@@ -1,131 +1,260 @@
 <html>
 
 <head>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
 
-        body {
-            height: 100vh;
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-family: sans-serif;
-            background-color: #ec9999;
-        }
+		body {
+			height: 100vh;
+			width: 100%;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			font-family: sans-serif;
+			background-color: #690505;
+		}
 
-        .wrapper {
-            height: 200px;
-            width: 300px;
-            background-color: #a11010;
-            position: relative;
-            display: flex;
-            justify-content: center;
-            z-index: 0;
-        }
+		.wrapper {
+			height: 400px;
+			width: 1000px;
+			background-color: #91071e;
+			position: relative;
+			display: flex;
+			justify-content: center;
+			z-index: 0;
+		}
 
-        .lid {
-            position: absolute;
-            height: 100%;
-            width: 100%;
-            top: 0;
-            left: 0;
-            border-right: 150px solid transparent;
-            border-bottom: 100px solid transparent;
-            border-left: 150px solid transparent;
-            transform-origin: top;
-            transition: transform 0.25s linear;
-        }
+		.lid {
+			position: absolute;
+			height: 100%;
+			width: 100%;
+			top: 0;
+			left: 0;
+			border-right: 150px solid transparent;
+			border-bottom: 100px solid transparent;
+			border-left: 150px solid transparent;
+			transform-origin: top;
+			transition: transform 0.25s linear;
+		}
 
-        /* Lid when closed */
-        .lid.one {
-            border-top: 100px solid #b41010;
-            transform: rotateX(0deg);
-            z-index: 3;
-            transition-delay: 0.75s;
-        }
+		/* Lid when closed */
+		.lid.one {
+			border-top: 150px solid #5f0411;
+			transform: rotateX(0deg);
+			z-index: 3;
+			transition-delay: 0.75s;
+			box-shadow:
+				inset -5px -5px 10px rgba(0, 0, 0, 0.2),
+				/* Inner shadow for depth */
+				5px 5px 15px rgba(0, 0, 0, 0.3);
+		}
 
-        /* Lid when opened */
-        .lid.two {
-            border-top: 100px solid #d42f37;
-            transform: rotateX(90deg);
-            z-index: 1;
-            transition-delay: 0.5s;
-        }
+		/* Lid when opened */
+		.lid.two {
+			border-top: 150px solid #930303;
+			transform: rotateX(90deg);
+			z-index: 1;
+			transition-delay: 0.5s;
+		}
 
-        .envelope {
-            position: absolute;
-            height: 100%;
-            width: 100%;
-            top: 0;
-            left: 0;
-            border-top: 100px solid transparent;
-            border-right: 150px solid #da6161;
-            border-bottom: 100px solid #da6161;
-            border-left: 150px solid #da6161;
-            z-index: 3;
-        }
+		.seal {
+			position: absolute;
+			height: 175px;
+			width: 175px;
+			top: 85px;
+			left: 0;
 
-        .letter {
-            position: absolute;
-            top: 0;
-            width: 80%;
-            height: 100%;
-            background-color: rgb(255, 231, 12);
-            border-radius: 15px;
-            z-index: 2;
-            transition: 0.5s;
-        }
+			background-color: #B22222;
+			/* Deep red color for wax */
+			border-radius: 50%;
+			/* Makes it a perfect circle */
+			position: relative;
+			box-shadow:
+				inset -5px -5px 10px rgba(0, 0, 0, 0.2),
+				/* Inner shadow for depth */
+				5px 5px 15px rgba(0, 0, 0, 0.3);
+			/* Outer shadow for realistic wax */
+			z-index: 4;
+		}
 
-        .letter p {
-            text-align: center;
-            font-size: 30px;
-            margin-top: 30px;
-            color: #3B4049;
-        }
+		.seal:hover {
+			background-color: #f41515;
+		}
 
-        .wrapper:hover .lid.one {
-            transform: rotateX(90deg);
-            transition-delay: 0s;
-        }
+		.seal::before {
+			content: "❦";
+			/* Example wax seal symbol */
+			font-size: 50px;
+			color: rgba(0, 0, 0, 0.3);
+			/* Subtle embossed effect */
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+		}
 
-        .wrapper:hover .lid.two {
-            transform: rotateX(180deg);
-            transition-delay: 0.25s;
-        }
+		.envelope {
+			position: absolute;
+			height: 100%;
+			width: 100%;
+			top: 0;
+			left: 0;
+			border-top: 125px solid transparent;
+			border-right: 150px solid #5f0411;
+			border-bottom: 252px solid #5f0411;
+			border-left: 150px solid #5f0411;
+			z-index: 3;
+		}
 
-        .wrapper:hover .letter {
-            transform: translateY(-120px);
-            transition-delay: 0.5s;
-        }
-    </style>
+		.letter {
+			position: absolute;
+			top: 0;
+			width: 80%;
+			height: 100%;
+			background-color: rgb(255, 255, 255);
+			border-radius: 15px;
+			z-index: 2;
+			transition: 0.5s;
+		}
+
+		#fire-anim {
+			position: absolute;
+			width: 1000px;
+			z-index: 1;
+		}
+
+		#replacement-letter {
+			position: absolute;
+			height: 200px;
+			width: 200px;
+			background-color: rgb(255, 255, 255);
+			border-radius: 15px;
+			transition: 0.5s;
+			background-image: url("assets/letter-bg.jpg");
+			background-size: cover;
+			background-position: center;
+			box-shadow:
+				inset -5px -5px 10px rgba(0, 0, 0, 0.2),
+				/* Inner shadow for depth */
+				5px 5px 15px rgba(0, 0, 0, 0.3);
+		}
+
+		#replacement-letter p,
+		#replacement-letter em {
+			font-size: 20px;
+			font-family: 'Times New Roman', Times, serif;
+		}
+
+		#letter-content-container {
+			margin-left: 8em;
+			margin-right: 8em;
+			margin-top: 6em;
+			padding-left: 8em;
+			padding-right: 8em;
+		}
+
+		#alert-notification {
+			color: rgb(255, 209, 23)
+		}
+	</style>
 </head>
 
 <body>
-    <div class="wrapper">
-        <div class="lid one"></div>
-        <div class="lid two"></div>
-        <div class="envelope"></div>
-        <div class="letter">
-            <p style="font-size: 14px;">
-                <em style="color:red">ALERTE!</em>
-                <br/><br/>
+	<img id="fire-anim" src="assets/anim-fire.gif" />
+	<div class="wrapper">
+		<div class="lid one"></div>
+		<div class="lid two"></div>
+		<div class="seal"></div>
+		<div class="envelope"></div>
+		<div class="letter"></div>
+	</div>
+	<div id="replacement-letter">
+		<div id="letter-content-container">
+			<p>
+				<em id="alert-notification">ALERTE. Billet gagnant.</em>
 
-                Mariage de Sylvain et Jennifer<br/><br/>
-                Le samedi 18 octobre 2025<br/><br/>
+				<br /><br />
 
-                <a>Vers le site du mariage...</a>
+				Sylvain et Jennifer vous invitent cordialement à leur mariage sacré
+				qui se déroulera le samedi 18 octobre 2025 à 12h30.<br /><br />
 
-                <br/><br/>
-                <em style="font-size: 10px;">P.S: Ceci est un sacrement.</em>
-            </p>
-        </div>
-    </div>
+				Vous devrez vous inscrire au site du mariage ci-dessous. Vous y trouverez également plus
+				de détails.
+
+				<a href="https://sayi.do/sylvainetjennifer?bypassCache=true">Cliquez-ici pour aller vers le site du
+					mariage...</a>
+
+				<br /><br />
+				<br /><br />
+
+				Nos salutions les plus sincères,
+
+				<br /><br />
+				<br /><br />
+
+				Sylvain Tran et Jennifer Viger
+
+				<br /><br />
+
+				<em style="font-size: 10px;">P.S: Ceci est un sacrement de l'Église catholique.</em>
+			</p>
+		</div>
+	</div>
 </body>
+<script src="lib/jquery.js"></script>
+<script>
+	// Hide fire and letter
+	$("#fire-anim").hide()
+	$("#replacement-letter").hide()
+
+	// Seal animations
+	$(".seal").click(function () {
+		// Open lids
+		$(".wrapper .lid.one").css("transform", "rotateX(90deg)").css("transitionDelay", "0s")
+		$(".wrapper .lid.two").css("transform", "rotateX(180deg)").css("transitionDelay", "0.25s")
+		$(".wrapper .letter").css("transform", "translateY(-120px)").css("transitionDelay", "0.5s")
+		// Pop-out seal
+		$(".seal").css("transform", "translateY(-1000px)").css("transitionDelay", "0.5s").css("transition",
+			"transform 0.5s linear")
+		animateBurningEnveloppe()
+	});
+
+	function animateBurningEnveloppe() {
+		startFire()
+		removeEnveloppe()
+		removeFire()
+		showLetter()
+		rescaleLetter()
+	}
+
+	function startFire() {
+		$('#fire-anim').fadeIn(1500, function () {})
+	}
+
+	function removeFire() {
+		$('#fire-anim').fadeOut(1500)
+	}
+
+	function removeEnveloppe() {
+		$('.wrapper').fadeOut(2500).delay(0)
+	}
+
+	function showLetter() {
+		$("#replacement-letter").delay(2000).fadeIn(6500)
+	}
+
+	function rescaleLetter() {
+		$("#replacement-letter").css({
+			"width": "60vw",
+			"height": "95vh",
+			"transition": "all 1.5s ease-in-out"
+		});
+	}
+</script>
 
 </html>
 
