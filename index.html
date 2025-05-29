@@ -1,7 +1,17 @@
 <html>
 
 <head>
+	<link type="text/css" rel="stylesheet" media="screen" href="./css/jquery-sakura.min.css" />
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Passions+Conflict&display=swap" rel="stylesheet">
 	<style>
+		.passions-conflict-regular {
+			font-family: "Passions Conflict", cursive;
+			font-weight: 400;
+			font-style: normal;
+		}
+
 		* {
 			margin: 0;
 			padding: 0;
@@ -134,7 +144,7 @@
 			background-color: rgb(255, 255, 255);
 			border-radius: 15px;
 			transition: 0.5s;
-			background-image: url("assets/letter-bg.jpg");
+			background-image: url("assets/letter-bg2.jpg");
 			background-size: cover;
 			background-position: center;
 			box-shadow:
@@ -145,8 +155,8 @@
 
 		#replacement-letter p,
 		#replacement-letter em {
-			font-size: 20px;
-			font-family: 'Times New Roman', Times, serif;
+			font-size: 28px;
+			font-family: 'Passions Conflict', 'Times New Roman', Times, serif;
 		}
 
 		#letter-content-container {
@@ -159,6 +169,15 @@
 
 		#alert-notification {
 			color: rgb(255, 209, 23)
+		}
+
+		a {
+			text-decoration: none;
+			color: rgb(255, 209, 23);
+		}
+
+		a:hover {
+			color: rgb(163, 14, 39);
 		}
 	</style>
 </head>
@@ -175,8 +194,6 @@
 	<div id="replacement-letter">
 		<div id="letter-content-container">
 			<p>
-				<em id="alert-notification">ALERTE. Billet gagnant.</em>
-
 				<br /><br />
 
 				Sylvain et Jennifer vous invitent cordialement à leur mariage sacré
@@ -185,22 +202,20 @@
 				Vous devrez vous inscrire au site du mariage ci-dessous. Vous y trouverez également plus
 				de détails.
 
-				<a href="https://sayi.do/sylvainetjennifer?bypassCache=true">Cliquez-ici pour aller vers le site du
-					mariage...</a>
-
 				<br /><br />
+
+				<a href="https://sayi.do/sylvainetjennifer?bypassCache=true">Cliquez-ici pour aller vers le site du
+					mariage.</a>
+
 				<br /><br />
 
 				Nos salutions les plus sincères,
 
 				<br /><br />
+
+				<em style="font-size: 40px">Sylvain Tran et Jennifer Viger</em>
+
 				<br /><br />
-
-				Sylvain Tran et Jennifer Viger
-
-				<br /><br />
-
-				<em style="font-size: 10px;">P.S: Ceci est un sacrement de l'Église catholique.</em>
 			</p>
 		</div>
 	</div>
@@ -254,6 +269,18 @@
 			"transition": "all 1.5s ease-in-out"
 		});
 	}
+</script>
+<script src="./js/jquery-sakura.min.js"></script>
+<script>
+	// domReady
+	$(function () {
+		$('body').sakura();
+	});
+
+	// windowLoad
+	$(window).load(function () {
+		$('body').sakura();
+	});
 </script>
 
 </html>
