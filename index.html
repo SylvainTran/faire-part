@@ -16,7 +16,7 @@
 
 		body {
 			height: 100vh;
-			width: 100%;
+			width: 100vw;
 			display: flex;
 			justify-content: center;
 			align-items: center;
@@ -159,8 +159,8 @@
 
 		#replacement-letter {
 			position: absolute;
-			height: 600px;
-			width: 95vw;
+			height: 1280px;
+			width: 60vw;
 			max-height: 100%;
 			max-width: 100%;
 			/* Prevents text from spilling out */
@@ -289,6 +289,7 @@
 	// Hide fire, letter and flowers
 	$("#fire-anim").hide()
 	$("#replacement-letter").hide()
+	$("#letter-content-container").hide()
 	$("#flowers-top").hide()
 	$("#flowers-corner").hide()
 	$("#flowers-corner-right").hide()
@@ -319,7 +320,6 @@
 		removeEnveloppe()
 		removeFire()
 		showLetter()
-		rescaleLetter()
 	}
 
 	function startFire() {
@@ -331,23 +331,16 @@
 	}
 
 	function removeEnveloppe() {
-		$('.wrapper').fadeOut(2500).delay(0)
+		$('.wrapper').fadeOut(2500)
 	}
 
 	function showLetter() {
-		$("#replacement-letter").delay(2500).fadeIn(12500)
+		$("#replacement-letter").fadeTo(8000, 1)
+		$("#letter-content-container").delay(3000).fadeTo(13000, 1)
 		$("body").css("backgroundColor", "white")
 		$("#flowers-top").fadeIn(5500)
 		$("#flowers-corner").fadeIn(5500)
 		$("#flowers-corner-right").fadeIn(5500)
-	}
-
-	function rescaleLetter() {
-		$("#replacement-letter").css({
-			"width": "60vw",
-			"height": "600px",
-			"transition": "all 1.5s ease-in-out"
-		})
 	}
 
 	function playFireSounds() {
