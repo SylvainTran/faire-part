@@ -17,10 +17,11 @@
 		body {
 			height: 100vh;
 			width: 100vw;
+			max-height: 100%;
+			max-width: 100%;
 			display: flex;
 			justify-content: center;
 			align-items: center;
-			font-family: sans-serif;
 			background-color: #780303;
 			font-family: 'Passions Conflict', 'Times New Roman', Times, serif;
 		}
@@ -237,6 +238,18 @@
 			z-index: 3;
 			rotate: 270deg
 		}
+
+		#citation-bible {
+			position: absolute;
+			top: 100px;
+		}
+
+		#citation-bible p {
+			width: 50vw;
+			font-size: 2em;
+			color: white;
+			font-family: 'Beau Rivage', 'cursive';
+		}
 	</style>
 </head>
 
@@ -244,6 +257,14 @@
 	<img alt="flowers" id="flowers-top" src="assets/flowers-crown1.png" />
 	<img alt="flowers in left corner" id="flowers-corner" src="assets/flower-corner.png" />
 	<img alt="flowers in right corner" id="flowers-corner-right" src="assets/flower-corner.png" />
+	<div id="citation-bible">
+		<p>
+			"Mets-moi comme un sceau sur ton coeur, Comme un sceau sur ton bras; Car l'amour est fort comme la mort, La
+			jalousie est inflexible comme le séjour des morts; Ses ardeurs sont des ardeurs de feu, Une flamme de
+			l'Éternel."
+			- Cantique des Cantiques 8:6-7 (LSG)
+		</p>
+	</div>
 	<div class="wrapper">
 		<div class="lid one"></div>
 		<div class="lid two"></div>
@@ -356,7 +377,7 @@
 					fireSound.pause() // Stop audio when volume is nearly silent
 				}
 			}, 200)
-		}, 2500) // Start fading out after 3 seconds
+		}, 750) // Start fading out after 0.75 seconds
 	}
 
 	function playPaperRustle() {
