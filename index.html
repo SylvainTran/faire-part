@@ -377,7 +377,7 @@
 	}
 
 	function removeFire() {
-		$('#fire-anim').fadeOut(1500)
+		$('#fire-anim').fadeOut(800)
 	}
 
 	function removeEnveloppe() {
@@ -406,7 +406,7 @@
 					clearInterval(fadeInterval)
 					fireSound.pause() // Stop audio when volume is nearly silent
 				}
-			}, 200)
+			}, 50)
 		}, 750) // Start fading out after 0.75 seconds
 	}
 
