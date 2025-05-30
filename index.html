@@ -1,10 +1,12 @@
 <html>
 
 <head>
-	<link type="text/css" rel="stylesheet" media="screen" href="./css/jquery-sakura.min.css" />
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Passions+Conflict&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Beau+Rivage&family=Passions+Conflict&display=swap"
+		rel="stylesheet">
+
+	<link type="text/css" rel="stylesheet" media="screen" href="./css/jquery-sakura.min.css" />
 	<style>
 		* {
 			margin: 0;
@@ -147,11 +149,12 @@
 		}
 
 		#fire-anim {
-			position: absolute;
-			top: 450px;
+			position: relative;
+			bottom: -75px;
+			left: -50%;
 			width: 600px;
 			height: 200px;
-			z-index: 1;
+			z-index: 5;
 		}
 
 		#replacement-letter {
@@ -177,8 +180,8 @@
 
 		#replacement-letter p,
 		#replacement-letter em {
-			font-size: 2em;
-			font-family: 'Passions Conflict', 'Times New Roman', Times, serif;
+			font-size: 1.6em;
+			font-family: 'Beau Rivage', 'cursive', 'Passions Conflict', 'Times New Roman', Times, serif;
 		}
 
 		#letter-content-container {
@@ -241,14 +244,15 @@
 	<img alt="flowers" id="flowers-top" src="assets/flowers-crown1.png" />
 	<img alt="flowers in left corner" id="flowers-corner" src="assets/flower-corner.png" />
 	<img alt="flowers in right corner" id="flowers-corner-right" src="assets/flower-corner.png" />
-	<img alt="fire animation burning an envelope" id="fire-anim" src="assets/anim-fire.gif" />
 	<div class="wrapper">
 		<div class="lid one"></div>
 		<div class="lid two"></div>
 		<div class="seal">
 			<div class="sealInner"></div>
 		</div>
-		<div class="envelope"></div>
+		<div class="envelope">
+			<img alt="fire animation burning an envelope" id="fire-anim" src="assets/anim-fire.gif" />
+		</div>
 		<div class="letter"></div>
 	</div>
 	<div id="replacement-letter">
