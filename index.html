@@ -257,10 +257,10 @@
 			min-height: 250px;
 			max-height: 400px;
 
-			width: 95vw;
+			width: 1280px;
 			overflow: scroll;
 			line-break: auto;
-			max-width: 720px;
+			max-width: 1280px;
 
 			overflow-wrap: break-word;
 			/* Forces word breaks when needed */
@@ -275,6 +275,26 @@
 			font-size: 2.3em;
 			color: white;
 			font-family: 'Beau Rivage', 'cursive';
+		}
+
+		@media screen and (max-width: 720px) {
+			#citation-bible {
+				top: -450px;
+				left: -400px;
+				height: 250px;
+
+				min-height: 250px;
+				max-height: 400px;
+
+				width: 720px;
+				max-width: 720px;
+			}
+
+			#citation-bible p {
+				font-size: 3em;
+				color: white;
+				font-family: 'Beau Rivage', 'cursive';
+			}
 		}
 	</style>
 </head>
@@ -345,7 +365,7 @@
 	$("#flowers-corner-right").hide()
 
 	// Seal animations
-	$(".seal").click(function () {
+	$(".seal").on("click touchstart", function () {
 		// Open lids
 		$(".wrapper .lid.one").css("transform", "rotateX(90deg)").css("transitionDelay", "0s")
 		$(".wrapper .lid.two").css("transform", "rotateX(180deg)").css("transitionDelay", "0.25s")
@@ -354,7 +374,7 @@
 		$(".seal").css("transform", "translateY(-1000px)").css("transitionDelay", "0.5s").css("transition",
 			"transform 0.5s linear")
 		animateBurningEnveloppe()
-	});
+	})
 
 	function animateBurningEnveloppe() {
 		startFire()
