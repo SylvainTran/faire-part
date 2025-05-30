@@ -6,12 +6,6 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Passions+Conflict&display=swap" rel="stylesheet">
 	<style>
-		.passions-conflict-regular {
-			font-family: "Passions Conflict", cursive;
-			font-weight: 400;
-			font-style: normal;
-		}
-
 		* {
 			margin: 0;
 			padding: 0;
@@ -25,12 +19,13 @@
 			justify-content: center;
 			align-items: center;
 			font-family: sans-serif;
-			background-color: #690505;
+			background-color: #780303;
+			font-family: 'Passions Conflict', 'Times New Roman', Times, serif;
 		}
 
 		.wrapper {
-			height: 400px;
-			width: 1000px;
+			height: 200px;
+			width: 600px;
 			background-color: #91071e;
 			position: relative;
 			display: flex;
@@ -53,14 +48,14 @@
 
 		/* Lid when closed */
 		.lid.one {
-			border-top: 150px solid #5f0411;
+			border-top: 250px solid #5f0411;
 			transform: rotateX(0deg);
 			z-index: 3;
 			transition-delay: 0.75s;
 			box-shadow:
 				inset -5px -5px 10px rgba(0, 0, 0, 0.2),
 				/* Inner shadow for depth */
-				5px 5px 15px rgba(0, 0, 0, 0.3);
+				50px 50px 150px rgba(0, 0, 0, 0.4);
 		}
 
 		/* Lid when opened */
@@ -73,12 +68,12 @@
 
 		.seal {
 			position: absolute;
-			height: 175px;
-			width: 175px;
-			top: 85px;
+			height: 105px;
+			width: 105px;
+			top: 125px;
 			left: 0;
 
-			background-color: #B22222;
+			background-color: #7f1717;
 			/* Deep red color for wax */
 			border-radius: 50%;
 			/* Makes it a perfect circle */
@@ -91,12 +86,32 @@
 			z-index: 4;
 		}
 
-		.seal:hover {
+		.sealInner {
+			position: relative;
+			height: 80px;
+			width: 80px;
+			top: 14.5px;
+			left: 12.5px;
+
+			background-color: #941b1b;
+			/* Deep red color for wax */
+			border-radius: 50%;
+			/* Makes it a perfect circle */
+			position: relative;
+			box-shadow:
+				inset -5px -5px 10px rgba(0, 0, 0, 0.2),
+				/* Inner shadow for depth */
+				5px 5px 15px rgba(0, 0, 0, 0.3);
+			/* Outer shadow for realistic wax */
+			z-index: 3;
+		}
+
+		.sealInner:hover {
 			background-color: #f41515;
 		}
 
-		.seal::before {
-			content: "❦";
+		.sealInner::before {
+			content: "J+S";
 			/* Example wax seal symbol */
 			font-size: 50px;
 			color: rgba(0, 0, 0, 0.3);
@@ -124,7 +139,7 @@
 			position: absolute;
 			top: 0;
 			width: 80%;
-			height: 100%;
+			height: 300px;
 			background-color: rgb(255, 255, 255);
 			border-radius: 15px;
 			z-index: 2;
@@ -133,18 +148,25 @@
 
 		#fire-anim {
 			position: absolute;
-			width: 1000px;
+			top: 450px;
+			width: 600px;
+			height: 200px;
 			z-index: 1;
 		}
 
 		#replacement-letter {
 			position: absolute;
-			height: 200px;
-			width: 200px;
+			height: 60vh;
+			width: 95vw;
+			max-height: 100%;
+			max-width: 100%;
+			/* Prevents text from spilling out */
+			overflow: scroll;
+
 			background-color: rgb(255, 255, 255);
 			border-radius: 15px;
 			transition: 0.5s;
-			background-image: url("assets/letter-bg2.jpg");
+			background-image: url("assets/letter-bg3.jpg");
 			background-size: cover;
 			background-position: center;
 			box-shadow:
@@ -155,16 +177,25 @@
 
 		#replacement-letter p,
 		#replacement-letter em {
-			font-size: 28px;
+			font-size: 2em;
 			font-family: 'Passions Conflict', 'Times New Roman', Times, serif;
 		}
 
 		#letter-content-container {
-			margin-left: 8em;
-			margin-right: 8em;
-			margin-top: 6em;
-			padding-left: 8em;
-			padding-right: 8em;
+			position: absolute;
+			left: 10vw;
+			top: 10vh;
+			margin-left: 30px;
+			margin-right: 60px;
+			margin-top: 30px;
+			padding-left: 30px;
+			padding-right: 60px;
+			max-width: 100%;
+			max-height: 100%;
+			word-wrap: break-word;
+			/* Breaks long words to fit */
+			white-space: normal;
+			/* Allows proper wrapping */
 		}
 
 		#alert-notification {
@@ -179,15 +210,44 @@
 		a:hover {
 			color: rgb(163, 14, 39);
 		}
+
+		#flowers-top {
+			position: absolute;
+			top: 0;
+			height: 300px;
+			z-index: 3;
+		}
+
+		#flowers-corner {
+			position: absolute;
+			bottom: 2.5px;
+			left: 0;
+			height: 300px;
+			z-index: 3;
+		}
+
+		#flowers-corner-right {
+			position: absolute;
+			bottom: 2.5px;
+			right: 0;
+			height: 300px;
+			z-index: 3;
+			rotate: 270deg
+		}
 	</style>
 </head>
 
 <body>
-	<img id="fire-anim" src="assets/anim-fire.gif" />
+	<img alt="flowers" id="flowers-top" src="assets/flowers-crown1.png" />
+	<img alt="flowers in left corner" id="flowers-corner" src="assets/flower-corner.png" />
+	<img alt="flowers in right corner" id="flowers-corner-right" src="assets/flower-corner.png" />
+	<img alt="fire animation burning an envelope" id="fire-anim" src="assets/anim-fire.gif" />
 	<div class="wrapper">
 		<div class="lid one"></div>
 		<div class="lid two"></div>
-		<div class="seal"></div>
+		<div class="seal">
+			<div class="sealInner"></div>
+		</div>
 		<div class="envelope"></div>
 		<div class="letter"></div>
 	</div>
@@ -222,9 +282,12 @@
 </body>
 <script src="lib/jquery.js"></script>
 <script>
-	// Hide fire and letter
+	// Hide fire, letter and flowers
 	$("#fire-anim").hide()
 	$("#replacement-letter").hide()
+	$("#flowers-top").hide()
+	$("#flowers-corner").hide()
+	$("#flowers-corner-right").hide()
 
 	// Seal animations
 	$(".seal").click(function () {
@@ -240,6 +303,15 @@
 
 	function animateBurningEnveloppe() {
 		startFire()
+
+		playFireSounds()
+		playPaperRustle()
+		playAhhhhSound()
+		setTimeout(function () {
+			playAngelicChoirSound()
+			playChurchBellSounds()
+		}, 2500)
+
 		removeEnveloppe()
 		removeFire()
 		showLetter()
@@ -247,7 +319,7 @@
 	}
 
 	function startFire() {
-		$('#fire-anim').fadeIn(1500, function () {})
+		$('#fire-anim').fadeIn(1500)
 	}
 
 	function removeFire() {
@@ -259,7 +331,11 @@
 	}
 
 	function showLetter() {
-		$("#replacement-letter").delay(2000).fadeIn(6500)
+		$("#replacement-letter").delay(2500).fadeIn(12500)
+		$("body").css("backgroundColor", "white")
+		$("#flowers-top").fadeIn(5500)
+		$("#flowers-corner").fadeIn(5500)
+		$("#flowers-corner-right").fadeIn(5500)
 	}
 
 	function rescaleLetter() {
@@ -267,20 +343,57 @@
 			"width": "60vw",
 			"height": "95vh",
 			"transition": "all 1.5s ease-in-out"
-		});
+		})
+	}
+
+	function playFireSounds() {
+		const fireSound = new Audio("./assets/fire-sound.mp3")
+		fireSound.volume = 0.5
+		fireSound.play()
+		setTimeout(function () {
+			let fadeInterval = setInterval(function () {
+				if (fireSound.volume > 0.05) {
+					fireSound.volume -= 0.05 // Reduce volume gradually
+				} else {
+					clearInterval(fadeInterval)
+					fireSound.pause() // Stop audio when volume is nearly silent
+				}
+			}, 200)
+		}, 2500) // Start fading out after 3 seconds
+	}
+
+	function playPaperRustle() {
+		const paperRustle = new Audio("./assets/paper-rustle.mp3")
+		paperRustle.play()
+	}
+
+	function playAhhhhSound() {
+		const ahhhh = new Audio("./assets/ahhhh.mp3")
+		ahhhh.play()
+	}
+
+	function playAngelicChoirSound() {
+		const angelicChoir = new Audio("./assets/angelic-choir.mp3")
+		angelicChoir.play()
+	}
+
+	function playChurchBellSounds() {
+		const churchBell = new Audio("./assets/church-bell.mp3")
+		churchBell.volume = 0.3
+		churchBell.play()
 	}
 </script>
 <script src="./js/jquery-sakura.min.js"></script>
 <script>
 	// domReady
 	$(function () {
-		$('body').sakura();
+		$('body').sakura()
 	});
 
 	// windowLoad
 	$(window).load(function () {
-		$('body').sakura();
-	});
+		$('body').sakura()
+	})
 </script>
 
 </html>
