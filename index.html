@@ -1,11 +1,21 @@
-<html>
+<!DOCTYPE html>
+<html lang="fr">
 
 <head>
+	<title>Mariage Sylvain Tran & Jennifer Viger, Faire-part</title>
+
+	<meta charset="UTF-8">
+	<meta name="description" content="Wedding faire-part">
+	<meta name="keywords" content="Wedding, HTML, CSS, JavaScript">
+	<meta name="author" content="Sylvain Tran">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Beau+Rivage&family=Passions+Conflict&display=swap"
 		rel="stylesheet">
 
+	<link rel="icon" type="image/png" href="./assets/favicon.png">
 	<link type="text/css" rel="stylesheet" media="screen" href="./css/jquery-sakura.min.css" />
 	<style>
 		* {
@@ -409,9 +419,9 @@
 	});
 
 	// windowLoad
-	$(window).load(function () {
-		$('body').sakura()
-	})
+	$(window).on("load", function () {
+		$("body").sakura();
+	});
 </script>
 
 </html>
