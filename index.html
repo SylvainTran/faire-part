@@ -313,29 +313,10 @@
 
 		#citation-bible p {
 			width: 50vw;
-			font-size: 1.8em;
+			font-size: 3em;
 			color: white;
 			font-family: "Beau Rivage", "cursive";
 			cursor: pointer;
-		}
-
-		/* Iphone 15: FIXME: This doesn't work. */
-		@media screen and (max-width: 393px) {
-			#citation-bible {
-				top: -750px;
-				left: -400px;
-				height: 250px;
-
-				min-height: 250px;
-				max-height: 400px;
-
-				width: 393px;
-				max-width: 393px;
-			}
-
-			#citation-bible p {
-				font-size: 3em;
-			}
 		}
 
 		.bt-container {
@@ -371,9 +352,29 @@
 
 		#angel-wings {
 			position: absolute;
-			width: 800px;
-			bottom: 100px;
+			width: 50%;
+			top: 35%;
 			z-index: 5;
+		}
+
+		@media only screen and (max-width: 393px) and (max-height: 852px) {
+
+			#citation-bible {
+				color: red;
+				top: -750px;
+				left: -400px;
+				height: 250px;
+
+				min-height: 250px;
+				max-height: 400px;
+
+				width: 393px;
+				max-width: 393px;
+			}
+
+			#citation-bible p {
+				font-size: 4em;
+			}
 		}
 	</style>
 </head>
@@ -404,9 +405,9 @@
 			</div>
 			<img alt="fire animation burning an envelope" id="fire-anim" src="assets/anim-fire.gif" />
 		</div>
-		<img alt="angel" id="angel-wings" src="assets/angel.gif" />
 		<div class="letter"></div>
 	</div>
+	<img alt="angel" id="angel-wings" src="assets/angel.gif" />
 	<div id="replacement-letter">
 		<div id="letter-content-container">
 			<p>
@@ -493,13 +494,13 @@
 			.css("transitionDelay", "0.25s")
 
 		// Manifest the angel
-		$("#angel-wings").fadeIn(2000)
+		$("#angel-wings").fadeIn(3500)
 		$("#angel-wings").slideUp(2000)
 
 		// Pop-up placeholder letter
 		$(".wrapper .letter")
 			.css("transform", "translateY(-120px)")
-			.css("transitionDelay", "0.5s")
+			.css("transitionDelay", "0.75s")
 
 		// Pop-out seal
 		$(".seal")
